@@ -94,15 +94,16 @@ function getWinnersByYear() {
 Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
 function getAverageGoals(data) {
-    let homeGoals = data.reduce((acc, curr) => {
-        return acc += curr["Home Team Goals"];
+    let homeGoals = data.reduce((accumulator, item) => {
+        return accumulator + item["Home Team Goals"];
     }, 0) / data.length;
-    let awayGoals = data.reduce((acc, curr) => {
-        return acc += curr["Away Team Goals"];
+    let awayGoals = data.reduce((accumulator, item) => {
+        return accumulator + item["Away Team Goals"];
     }, 0) / data.length;
-    return `Average Home Team Goals: ${homeGoals}, Average Away Team Goals: ${awayGoals}`;
+    /*return `Average Home Team Goals: ${homeGoals}, Average Away Team Goals: ${awayGoals}`;*/
+    return (homeGoals + awayGoals).toFixed(2); 
 }
-
+console.log(getAverageGoals)
 
 
 
